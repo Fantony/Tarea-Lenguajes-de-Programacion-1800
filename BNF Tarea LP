@@ -1,0 +1,69 @@
+# BNF Tareita LP
+
+<Lenguaje>::=<ConjuntoInstrucciones>
+
+<ConjuntoInstrucciones>::=<Instruccion> | <ConjuntoInstrucciones><Instruccion>
+
+<Instruccion>::=<Variable> | <DefinicionVariable> | <Ciclo> | <Condicion> | <Leer> | <Mostrar> | <Asignacion> | <Aritmetica>
+
+<Variable> ::= <Mayuscula> | <Mayuscula><AlfaNumerico> 
+
+<DefinicionVariable> ::= “Definir” <Variable><TipoVariable>
+
+<Ciclo> ::= <Repeticion> | <Mientras>
+
+<Repeticion> ::= “Repetir”<ConjuntoInstrucciones> ”Hasta” <Situacion>
+
+<Mientras> ::= “Mientras” <Situacion> “Repetir” <ConjuntoInstrucciones>
+
+<Condicion> ::= <Si> | <Sino>
+
+<Si> ::= “Si” <Situacion> ”Hacer” <ConjuntoInstrucciones> “FinSi”
+
+<Sino> ::= “Si” <Situacion> “Hacer” <ConjuntoInstrucciones> “Sino” <ConjuntoInstrucciones> “FinSi”
+
+<Leer> ::= “Leer” <Variable>
+
+<Mostrar> ::= “Mostrar” <Variable> | “Mostrar” <AlfaNumerico>
+
+<Aritmetica> ::= <Numero1><OperadorAritmetico><Numero2> | <Variable><OperadorAritmetico><Variable> | <Aritmetica><OperadorAritmetico><Numero1> | <Aritmetica><OperadorAritmetico><Variable>
+
+<Asignacion> ::= <Variable>”=”<AlfaNumerico> | <Variable> “=” <Aritmetica>
+
+<Situacion> ::= <IgualQue> | <DistintoQue> | <MayorQue> | <MenorQue> | <MayorIgualQue> | <MenorIgualQue>
+
+<IgualQue> ::= <Cadena> “==” <Cadena> | <Numero1> “==” <Numero2> | <Variable> “==” <Cadena> | <Variable> “==” <Numero1>
+
+<DistintoQue> ::= <Cadena>”!=”<Cadena> | <Numero1> “!=” <Numero2> | <Variable> “!=” <Cadena> | <Variable> “!=” <Numero1>
+
+<MayorQue> ::= <Numero1> “>” <Numero2> | <Variable> ”>” <Numero1> | <Numero1> “>” <Variable> | <Variable> “>” <Variable>
+
+<MenorQue> ::= <Numero1> “<” <Numero2> | <Variable> ”<” <Numero1> | <Numero1> “<” <Variable> | <Variable> “<” <Variable>
+
+<MayorIgualQue> ::= <Numero1> “>=” <Numero2> | <Variable> “>=” <Numero1> | <Numero1> “>=” <Variable> | <Variable> “>=” <Variable>
+
+<MenorIgualQue> ::= <Numero1> “<=” <Numero2> | <Variable> ”<=” <Numero1> | <Numero1> “<=” <Variable> | <Variable> “<=” <Variable>
+
+<Tipo> ::= <Entero> | <Decimal> | <Cadena>
+
+<Numero1> ::= <Entero> | <Decimal>
+
+<Entero> ::= <Numero> | <Signo><Numero>
+
+<Decimal> ::= <Numero> “.” <Numero> | <Signo><Numero> ”.” <Numero>
+
+<Cadena> ::= “”<AlfaNumerico>””
+
+<Numero>::= <Digito> | <Numero><Digito>
+
+<AlfaNumerico> ::= <Mayusculas> | <Minusculas> | <Numero> | <AlfaNumerico><Mayuscula> | <AlfaNumerico><Minuscula> | <AlfaNumerico><Numero>
+
+<Mayusculas> ::= “A” | “B” | “C” | “D” | “E” | “F” | “G” | “H” | “I” | “J” | “K” | “L” | “M” | “N” | “O” | “P” | “Q” | “R” | “S” | “T” | “U” | “V” | “X” | “Y” | “Z”
+
+<Minusculas> ::= “a” | “b” | “c | “d” | “e” | “f” | “g” | “h” | “i” | “j” | “k” | “l” | “m” | “n” | “o” | “p” | “q” | “r” | “s” | “t” | “u” | “v” | “x” | “y” | “z”
+
+<Digito> ::= “0” | “1” | “2” | “3” | “4” | “5” | “6” | “7” | “8” | “9” 
+
+<OperadorAritmetico> ::= “+” | “-” | “*” | “/”
+
+<Signo> ::= “+” | “-”
