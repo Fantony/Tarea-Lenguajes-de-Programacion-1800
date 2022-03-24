@@ -1,29 +1,29 @@
 # BNF Tareita LP
 
-<programa> ::- Programa <Mayuscula><Alfanumerico> "{" <EstructuraGeneral> "}"
+<programa> ::- "Programa" <Mayuscula><Alfanumerico> "{" <EstructuraGeneral> "}"
 
 
-<EstructuraGeneral> ::- <FuncionPrincipal> | <FuncionPrincipal><Funcion> | <FuncionPrincipal><Funcion><Funcion>
+<EstructuraGeneral> ::- <FuncionPrincipal> | <EstructuraGeneral><Funcion>
 
-<FuncionPrincipal> ::- "Fn Principal" "(" ")" "{" <ConjuntoInstrucciones> "}"
-
-<ConjuntoInstrucciones> ::= <Instruccion> | <LlamadaFuncion> | <ConjuntoInstrucciones><Instruccion> | <ConjuntoInstrucciones><LlamadaFuncion>
+<FuncionPrincipal> ::- "Fn Principal()" "{" <ConjuntoInstrucciones> "}"
 
 <Funcion> ::- "Fn" <Mayuscula><Alfanumerico> "(" <Argumento> ")" "{" <ConjuntoInstrucciones> "}" | "Fn" <Mayuscula><Alfanumerico> "(" ")" "{" <ConjuntoInstrucciones> "}"
 
-<LlamadaFuncion> ::- <Mayuscula><Alfanumerico> "(" <Argumento> ")" ";" | <Mayuscula><Alfanumerico> "(" ")" ";"
+<ConjuntoInstrucciones> ::= <Instruccion> | <LlamadaFuncion> | <ConjuntoInstrucciones><Instruccion> | <ConjuntoInstrucciones><LlamadaFuncion>
 
-<Argumento> ::- <Variable> | <Numero> | <Argumento> "," <Variable> | <Argumento> "," <Numero>
+<LlamadaFuncion> ::- <Mayuscula><Alfanumerico> "(" <Argumento> ");" | <Mayuscula><Alfanumerico> "(" ");"
+
+<Argumento> ::- <Variable> | <AlfaNumerico> | <Argumento> "," <Variable> | <Argumento> "," <AlfaNumerico>
 
 <Instruccion> ::= <Variable> | <DefinicionVariable> | <Ciclo> | <Condicion> | <Leer> | <Mostrar> | <Asignacion> | <Aritmetica>
 
-<DefinicionVariable> ::= “Definir” <Variable><TipoVariable>
+<DefinicionVariable> ::= “Definir” <Variable><TipoVariable> | “Definir” <Variable>
 
 <Ciclo> ::= <Repeticion> | <Mientras>
 
-<Repeticion> ::= “Repetir”<ConjuntoInstrucciones> ”Hasta” <Situacion>
+<Repeticion> ::= “Repetir” <ConjuntoInstrucciones> ”Hasta” <Situacion> "FinRepetición"
 
-<Mientras> ::= “Mientras” <Situacion> “Repetir” <ConjuntoInstrucciones>
+<Mientras> ::= “Mientras” <Situacion> “Repetir” <ConjuntoInstrucciones> "FinMientras"
 
 <Condicion> ::= <Si> | <Sino>
 
