@@ -8,13 +8,13 @@
 
 <EstructuraGeneral> ::- <FuncionPrincipal> | <FuncionPrincipal><Funcion> | <FuncionPrincipal><Funcion><Funcion>
 
-<FuncionPrincipal> ::- fn Principal "(" ")" "{" <ConjuntoInstrucciones> "}"
+<FuncionPrincipal> ::- "Fn Principal" "(" ")" "{" <ConjuntoInstrucciones> "}"
 
 <ConjuntoInstrucciones> ::= <Instruccion> | <LlamadaFuncion> | <ConjuntoInstrucciones><Instruccion> | <ConjuntoInstrucciones><LlamadaFuncion>
 
-<Funcion> ::- fn <Mayuscula><Alfanumerico> "(" <Argumento> ")" "{" <conjunto de instrucciónes> "}"
+<Funcion> ::- "Fn" <Mayuscula><Alfanumerico> "(" <Argumento> ")" "{" <ConjuntoInstrucciones> "}" | "Fn" <Mayuscula><Alfanumerico> "(" ")" "{" <ConjuntoInstrucciones> "}"
 
-<LlamadaFuncion> ::- <Mayuscula><Alfanumerico> "(" <Argumento> ")" ";"
+<LlamadaFuncion> ::- <Mayuscula> | <Mayuscula><Alfanumerico> "(" <Argumento> ")" ";" | <Mayuscula><Alfanumerico> "(" ")" ";"
 
 <Argumento> ::- <Variable> | <Numero> | <Argumento> "," <Variable> | <Argumento> "," <Numero>
 
