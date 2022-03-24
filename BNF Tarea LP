@@ -3,9 +3,6 @@
 <programa> ::- Programa <Mayuscula><Alfanumerico> "{" <EstructuraGeneral> "}"
 
 
-<Lenguaje> ::=<ConjuntoInstrucciones>
-
-
 <EstructuraGeneral> ::- <FuncionPrincipal> | <FuncionPrincipal><Funcion> | <FuncionPrincipal><Funcion><Funcion>
 
 <FuncionPrincipal> ::- "Fn Principal" "(" ")" "{" <ConjuntoInstrucciones> "}"
@@ -14,7 +11,7 @@
 
 <Funcion> ::- "Fn" <Mayuscula><Alfanumerico> "(" <Argumento> ")" "{" <ConjuntoInstrucciones> "}" | "Fn" <Mayuscula><Alfanumerico> "(" ")" "{" <ConjuntoInstrucciones> "}"
 
-<LlamadaFuncion> ::- <Mayuscula> | <Mayuscula><Alfanumerico> "(" <Argumento> ")" ";" | <Mayuscula><Alfanumerico> "(" ")" ";"
+<LlamadaFuncion> ::- <Mayuscula><Alfanumerico> "(" <Argumento> ")" ";" | <Mayuscula><Alfanumerico> "(" ")" ";"
 
 <Argumento> ::- <Variable> | <Numero> | <Argumento> "," <Variable> | <Argumento> "," <Numero>
 
