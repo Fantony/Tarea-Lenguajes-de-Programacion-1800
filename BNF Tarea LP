@@ -1,10 +1,24 @@
 # BNF Tareita LP
 
-<Lenguaje>::=<ConjuntoInstrucciones>
+<programa> ::- Programa <Mayuscula><Alfanumerico> "{" <EstructuraGeneral> "}"
 
-<ConjuntoInstrucciones>::=<Instruccion> | <ConjuntoInstrucciones><Instruccion>
 
-<Instruccion>::=<Variable> | <DefinicionVariable> | <Ciclo> | <Condicion> | <Leer> | <Mostrar> | <Asignacion> | <Aritmetica>
+<Lenguaje> ::=<ConjuntoInstrucciones>
+
+
+<EstructuraGeneral> ::- <FuncionPrincipal> | <FuncionPrincipal><Funcion> | <FuncionPrincipal><Funcion><Funcion>
+
+<FuncionPrincipal> ::- fn Principal "(" ")" "{" <ConjuntoInstrucciones> "}"
+
+<ConjuntoInstrucciones> ::= <Instruccion> | <LlamadaFuncion> | <ConjuntoInstrucciones><Instruccion> | <ConjuntoInstrucciones><LlamadaFuncion>
+
+<Funcion> ::- fn <Mayuscula><Alfanumerico> "(" <Argumento> ")" "{" <conjunto de instrucciónes> "}"
+
+<LlamadaFuncion> ::- <Mayuscula><Alfanumerico> "(" <Argumento> ")" ";"
+
+<Argumento> ::- <Variable> | <Numero> | <Argumento> "," <Variable> | <Argumento> "," <Numero>
+
+<Instruccion> ::= <Variable> | <DefinicionVariable> | <Ciclo> | <Condicion> | <Leer> | <Mostrar> | <Asignacion> | <Aritmetica>
 
 <DefinicionVariable> ::= “Definir” <Variable><TipoVariable>
 
