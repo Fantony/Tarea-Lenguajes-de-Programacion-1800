@@ -6,8 +6,6 @@
 
 <Instruccion>::=<Variable> | <DefinicionVariable> | <Ciclo> | <Condicion> | <Leer> | <Mostrar> | <Asignacion> | <Aritmetica>
 
-<Variable> ::= <Mayuscula> | <Mayuscula><AlfaNumerico> 
-
 <DefinicionVariable> ::= “Definir” <Variable><TipoVariable>
 
 <Ciclo> ::= <Repeticion> | <Mientras>
@@ -26,7 +24,7 @@
 
 <Mostrar> ::= “Mostrar” <Variable> | “Mostrar” <AlfaNumerico>
 
-<Aritmetica> ::= <NumeroReal> <OperadorAritmetico> <NumeroReal> | <Variable><OperadorAritmetico><Variable> | <Aritmetica><OperadorAritmetico><NumeroReal> | <Aritmetica><OperadorAritmetico><Variable>
+<Aritmetica> ::= <NumeroReal> <OperadorAritmetico> <NumeroReal> | <Variable><OperadorAritmetico><Variable> | <Aritmetica><OperadorAritmetico><Aritmetica> | <Aritmetica><OperadorAritmetico><NumeroReal> | <NumeroReal><OperadorAritmetico><Aritmetica> | <Aritmetica><OperadorAritmetico><Variable> | <Variable><OperadorAritmetico><Aritmetica>
 
 <Asignacion> ::= <Variable> ”=” <AlfaNumerico> | <Variable> “=” <Aritmetica>
 
@@ -45,6 +43,8 @@
 <MenorIgualQue> ::= <NumeroReal> “<=” <NumeroReal> | <Variable> ”<=” <NumeroReal> | <NumeroReal> “<=” <Variable> | <Variable> “<=” <Variable>
 
 <Tipo> ::= <Entero> | <Decimal> | <Cadena>
+
+<Variable> ::= <Mayuscula> | <Variable> <AlfaNumerico> 
 
 <NumeroReal> ::= <Entero> | <Decimal>
 
