@@ -1,0 +1,80 @@
+# BNF Tareita LP
+
+<programa> ::- "Programa" <Mayuscula><Alfanumerico> "{" <EstructuraGeneral> "}"
+
+
+<EstructuraGeneral> ::- <FuncionPrincipal> | <EstructuraGeneral><Funcion>
+
+<FuncionPrincipal> ::- "Fn Principal()" "{" <ConjuntoInstrucciones> "}"
+
+<Funcion> ::- "Fn" <Mayuscula><Alfanumerico> "(" <Argumento> ")" "{" <ConjuntoInstrucciones> "}" | "Fn" <Mayuscula><Alfanumerico> "(" ")" "{" <ConjuntoInstrucciones> "}"
+
+<ConjuntoInstrucciones> ::= <Instruccion> | <LlamadaFuncion> | <ConjuntoInstrucciones><Instruccion> | <ConjuntoInstrucciones><LlamadaFuncion>
+
+<LlamadaFuncion> ::- <Mayuscula><Alfanumerico> "(" <Argumento> ");" | <Mayuscula><Alfanumerico> "(" ");"
+
+<Argumento> ::- <Variable> | <AlfaNumerico> | <Argumento> "," <Variable> | <Argumento> "," <AlfaNumerico>
+
+<Instruccion> ::= <Variable> | <DefinicionVariable> | <Ciclo> | <Condicion> | <Leer> | <Mostrar> | <Asignacion> | <Aritmetica>
+
+<DefinicionVariable> ::= “Definir” <Variable><TipoVariable> | “Definir” <Variable>
+
+<Ciclo> ::= <Repeticion> | <Mientras>
+
+<Repeticion> ::= “Repetir” <ConjuntoInstrucciones> ”Hasta” <Situacion> "FinRepetición"
+
+<Mientras> ::= “Mientras” <Situacion> “Repetir” <ConjuntoInstrucciones> "FinMientras"
+
+<Condicion> ::= <Si> | <Sino>
+
+<Si> ::= “Si” <Situacion> ”Hacer” <ConjuntoInstrucciones> “FinSi”
+
+<Sino> ::= “Si” <Situacion> “Hacer” <ConjuntoInstrucciones> “Sino” <ConjuntoInstrucciones> “FinSi”
+
+<Leer> ::= “Leer” <Variable>
+
+<Mostrar> ::= “Mostrar” <Variable> | “Mostrar” <AlfaNumerico>
+
+<Aritmetica> ::= <NumeroReal> <OperadorAritmetico> <NumeroReal> | <Variable><OperadorAritmetico><Variable> | <Aritmetica><OperadorAritmetico><Aritmetica> | <Aritmetica><OperadorAritmetico><NumeroReal> | <NumeroReal><OperadorAritmetico><Aritmetica> | <Aritmetica><OperadorAritmetico><Variable> | <Variable><OperadorAritmetico><Aritmetica>
+
+<Asignacion> ::= <Variable> ”=” <AlfaNumerico> | <Variable> “=” <Aritmetica> | <Variable> “=” <Variable>
+
+<Situacion> ::= <IgualQue> | <DistintoQue> | <MayorQue> | <MenorQue> | <MayorIgualQue> | <MenorIgualQue>
+
+<IgualQue> ::= <Cadena> “==” <Cadena> | <NumeroReal> “==” <NumeroReal> | <Variable> “==” <Cadena> | <Variable> “==” <NumeroReal> 
+
+<DistintoQue> ::= <Cadena> ”!=” <Cadena> | <NumeroReal> “!=” <NumeroReal> | <Variable> “!=” <Cadena> | <Variable> “!=” <NumeroReal>
+
+<MayorQue> ::= <NumeroReal> “>” <NumeroReal> | <Variable> ”>” <NumeroReal> | <NumeroReal> “>” <Variable> | <Variable> “>” <Variable>
+
+<MenorQue> ::= <NumeroReal> “<” <NumeroReal> | <Variable> ”<” <NumeroReal> | <NumeroReal> “<” <Variable> | <Variable> “<” <Variable>
+
+<MayorIgualQue> ::= <NumeroReal> “>=” <NumeroReal> | <Variable> “>=” <NumeroReal> | <NumeroReal> “>=” <Variable> | <Variable> “>=” <Variable>
+
+<MenorIgualQue> ::= <NumeroReal> “<=” <NumeroReal> | <Variable> ”<=” <NumeroReal> | <NumeroReal> “<=” <Variable> | <Variable> “<=” <Variable>
+
+<Tipo> ::= <Entero> | <Decimal> | <Cadena>
+
+<Variable> ::= <Mayuscula> | <Variable> <AlfaNumerico> 
+
+<NumeroReal> ::= <Entero> | <Decimal>
+
+<Entero> ::= <Numero> | <Signo><Numero>
+
+<Decimal> ::= <Numero> “.” <Numero> | <Signo><Numero> ”.” <Numero>
+
+<Cadena> ::= “”<AlfaNumerico>””
+
+<AlfaNumerico> ::= <Mayusculas> | <Minusculas> | <Numero> | <AlfaNumerico><Mayuscula> | <AlfaNumerico><Minuscula> | <AlfaNumerico><Numero>
+
+<Mayusculas> ::= “A” | “B” | “C” | “D” | “E” | “F” | “G” | “H” | “I” | “J” | “K” | “L” | “M” | “N” | “O” | “P” | “Q” | “R” | “S” | “T” | “U” | “V” | “X” | “Y” | “Z”
+
+<Minusculas> ::= “a” | “b” | “c | “d” | “e” | “f” | “g” | “h” | “i” | “j” | “k” | “l” | “m” | “n” | “o” | “p” | “q” | “r” | “s” | “t” | “u” | “v” | “x” | “y” | “z”
+
+<Numero>::= <Digito> | <Numero><Digito>
+
+<Digito> ::= “0” | “1” | “2” | “3” | “4” | “5” | “6” | “7” | “8” | “9” 
+
+<OperadorAritmetico> ::= “+” | “-” | “*” | “/”
+
+<Signo> ::= “+” | “-”
