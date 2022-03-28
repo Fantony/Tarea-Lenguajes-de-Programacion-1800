@@ -10,17 +10,17 @@
 <LlamadaFuncion> ::- <Mayuscula><Alfanumerico> "(" <Argumento> ");" | <Mayuscula><Alfanumerico> "(" ");"
 <Argumento> ::- <Variable> | <AlfaNumerico> | <Argumento> "," <Variable> | <Argumento> "," <AlfaNumerico> 
 <Instruccion> ::- <DefinicionVariable> | <Ciclo> | <Condicion> | <Leer> | <Mostrar> | <Asignacion> | <Aritmetica>
-<DefinicionVariable> ::= “Definir” <Variable><Tipo>
+<DefinicionVariable> ::= “Definir” <Variable><Tipo>";"
 <Ciclo> ::= <Repeticion> | <Mientras>
           <Repeticion> ::= “Repetir” <ConjuntoInstrucciones> ”Hasta” <Situacion> "FinRepetición"
           <Mientras> ::= “Mientras” <Situacion> “Repetir” <ConjuntoInstrucciones> "FinMientras"
 <Condicion> ::= <Si> | <Sino>
          <Si> ::= “Si” <Situacion> ”Hacer” <ConjuntoInstrucciones> “FinSi”
-         <Sino> ::= “Si” <Situacion> “Hacer” <ConjuntoInstrucciones> “Sino” <ConjuntoInstrucciones> “FinSi”
+         <Sino> ::= “Si” <Situacion> “Hacer” <ConjuntoInstrucciones> “Sino” <ConjuntoInstrucciones> “FinSiNo”
 <Leer> ::= “Leer” <Variable>
-<Mostrar> ::= “Mostrar” <Variable> | “Mostrar” <AlfaNumerico>
+<Mostrar> ::= “Mostrar” <Variable>";" | “Mostrar” <AlfaNumerico>";"
 <Aritmetica> ::= <NumeroReal> <OperadorAritmetico> <NumeroReal> | <Variable><OperadorAritmetico><Variable> | <Aritmetica><OperadorAritmetico><Aritmetica>
-<Asignacion> ::= <Variable> ”=” <AlfaNumerico> | <Variable> “=” <Aritmetica>
+<Asignacion> ::= <Variable> ”=” <AlfaNumerico>";" | <Variable> “=” <Aritmetica>";"
 <Situacion> ::= <IgualQue> | <DistintoQue> | <MayorQue> | <MenorQue> | <MayorIgualQue> | <MenorIgualQue>
              <IgualQue> ::= <Cadena> “==” <Cadena> | <NumeroReal> “==” <NumeroReal> | <Variable> “==” <Cadena> | <Variable> “==” <NumeroReal> 
              <DistintoQue> ::= <Cadena> ”!=” <Cadena> | <NumeroReal> “!=” <NumeroReal> | <Variable> “!=” <Cadena> | <Variable> “!=” <NumeroReal>
