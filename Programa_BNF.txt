@@ -2,7 +2,7 @@
 
 <Declaracion_Externa> ::- <Prototipo_Funcion>|<Declaracion_Externa><Protipo_Funcion>
 
-<Prototipo_Funcion> ::- <Tipo_Datos><Nombre_Funcion>"("<Lista_Parametro>")"
+<Prototipo_Funcion> ::- <Nombre_Funcion>"("<Lista_Parametro>")"
 
 <Definicion_Funcion> ::-<Funcion_Principal>|<Funcion>
 
@@ -22,7 +22,7 @@
 
 <Lista_Parametros> ::- <vacio>|<Tipo_Datos><Identificador>|<Lista_Parametros>","<Tipo_Datos><Identificador>|<Lista_Parametros>","<Lista_Parametros>
 
-<Tipo_Datos> ::- "void"|"char"|"int"|"float"|"double"
+<Tipo_Datos> ::- "cadena"|"entero"|"decimal"
 
 <signo> ::- "+"|"-"
 

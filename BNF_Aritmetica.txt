@@ -1,0 +1,21 @@
+<programa>::- "Programa "<identificador>"\n"<funcion_principal>
+<funcion_principal>::-"Fn Principal ()" "{"<conjunto_instrucciones>"}fin"
+<conjunto_istrucciones>::- <definir_variables>|<expresion>|<conjunto_instrucciones><definir_variables>|<conjunto_instrucciones><expresion>
+<definir_variables>::- <tipo_dato><identificador>";"|<definir_variable><tipo_dato><identificador>";"
+<expresion> ::-<expresion_aritmetica>|<imprimir>
+<expresion_aritmetica> ::- <identificador> "=" (<numero>)|(<identificador>)";"|{<identificador>)(<operador_aritmetico>)(<identificador>}";"
+					       {<numero><operador_aritmetico><numero>}";"
+<imprimir>::- "imprimir""("<numero>");"|"imprimir""("<identificador");"
+<tipo_dato>::- "cadena"|"entero"|"decimal"
+<signo> ::- "+"|"-"
+<operador_aritmetico> ::- "+"|"-"|"*"|"/"
+<numero> ::- [<signo>](entero|real)
+<real> ::- (<entero>"."<entero>)
+<entero> ::- (<digito>)|{<entero><digito>}
+<identificador> ::- (<cadena>)
+<cadena> ::- (<letra>)|{<cadena><letra>}|{<cadena><digito>}|{<cadena><cadena>}
+<letra> ::- A|B|C|D|E|F|G|H|I|J|K|L|M|N|O|P|Q|R|S|T|U|V|W|X|Y|Z|a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z
+<digito> ::- 0|1|2|3|4|5|6|7|8|9
+
+
+ 
