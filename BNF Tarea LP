@@ -2,7 +2,6 @@
  
 <programa> ::- "Programa" <Mayuscula><Alfanumerico> "{" <EstructuraGeneral> "}"
 
-<<<<<<< HEAD
 <EstructuraGeneral> ::- <FuncionPrincipal> | [<Funcion> | {<Funcion>}]<EstructuraGeneral>[<Funcion> | {<Funcion>}]
 <FuncionPrincipal> ::- "Fn Principal()" "{" <LlamadaFunciones> "}"  
 <Funcion> ::- "Fn" <Mayuscula><Alfanumerico> "(" <Argumento> ")" "{" <ConjuntoInstrucciones> "}" | "Fn" <Mayuscula><Alfanumerico> "(" ")" "{" <ConjuntoInstrucciones> "}"
@@ -18,10 +17,12 @@
 <Condicion> ::= <Si> | <Sino>
          <Si> ::= “Si” <Situacion> ”Hacer” <ConjuntoInstrucciones> “FinSi”
          <Sino> ::= “Si” <Situacion> “Hacer” <ConjuntoInstrucciones> “Sino” <ConjuntoInstrucciones> “FinSiNo”
+
 <cambiar>::= "cambio" (<Asignacion>){<ListaCaso>}
         <ListaCaso>::= <CasoLinea>|<CasoLinea><ListaCaso>|<ListaCaso><LineaPorDefecto>
         <CasoLinea>::="Caso" <Numero>:<Instruccion> "Descanso"
         <LineaPorDefecto>::= "PorDefecto":<Instrucciones> 
+
 <Leer> ::= “Leer” <Variable>
 <Mostrar> ::= “Mostrar” <Variable>";" | “Mostrar” <AlfaNumerico>";"
 <Aritmetica> ::= <NumeroReal> <OperadorAritmetico> <NumeroReal> | <Variable><OperadorAritmetico><Variable> | <Aritmetica><OperadorAritmetico><Aritmetica>
