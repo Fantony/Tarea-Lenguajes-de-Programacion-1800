@@ -1,0 +1,27 @@
+Programa Test {
+
+	Fn Principal(){
+		Declarar();
+		Inicializar();
+			
+	}
+
+	Fn Declarar(){
+		Definir Numero1;
+		Definir EnteroN Entero;
+	}
+	
+	Fn Inicializar(){
+		Numero1 = 10;
+		EnteroN = 4.2;
+		Mostrar();
+	}
+
+	Fn Mostrar(){
+		Mostrar Numero1;
+		Mostrar EnteroN;
+		Mostrar 20;
+	}
+
+
+}

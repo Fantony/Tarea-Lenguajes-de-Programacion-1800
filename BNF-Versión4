@@ -2,30 +2,24 @@
  
 <programa> ::- "Programa" <Mayuscula><Alfanumerico> "{" <EstructuraGeneral> "}"
 
-<<<<<<< HEAD
-<EstructuraGeneral> ::- <FuncionPrincipal> | [<Funcion> | {<Funcion>}]<EstructuraGeneral>[<Funcion> | {<Funcion>}]
-<FuncionPrincipal> ::- "Fn Principal()" "{" <LlamadaFunciones> "}"  
+<EstructuraGeneral> ::- <FuncionPrincipal> | <EstructuraGeneral><Funcion>
+<FuncionPrincipal> ::- "Fn Principal()" "{" <LlamadaFuncion> "}"
 <Funcion> ::- "Fn" <Mayuscula><Alfanumerico> "(" <Argumento> ")" "{" <ConjuntoInstrucciones> "}" | "Fn" <Mayuscula><Alfanumerico> "(" ")" "{" <ConjuntoInstrucciones> "}"
-<ConjuntoInstrucciones> ::- <Instruccion> | <ConjuntoInstrucciones><Instruccion>
-<LlamadaFunciones> ::- <LlamadaFuncion> | <LlamadaFunciones><LlamadaFuncion>
+<ConjuntoInstrucciones> ::= <Instruccion> | <ConjuntoInstrucciones><Instruccion>
 <LlamadaFuncion> ::- <Mayuscula><Alfanumerico> "(" <Argumento> ");" | <Mayuscula><Alfanumerico> "(" ");"
-<Argumento> ::- <Variable> | <AlfaNumerico> | <Argumento> "," <Variable> | <Argumento> "," <AlfaNumerico> 
-<Instruccion> ::- <DefinicionVariable> | <Ciclo> | <Condicion> | <Leer> | <Mostrar> | <Asignacion> | <Aritmetica>
-<DefinicionVariable> ::= “Definir” <Variable><Tipo>";"
+<Argumento> ::- <Variable> | <DefinicionVariable> | <Argumento> "," <Variable> | <Argumento> "," <DefinicionVariable>
+<Instruccion> ::= <Variable> | <DefinicionVariable> | <Ciclo> | <Condicion> | <Leer> | <Mostrar> | <Asignacion> | <Aritmetica>
+<DefinicionVariable> ::= “Definir” <Variable><Tipo>
 <Ciclo> ::= <Repeticion> | <Mientras>
           <Repeticion> ::= “Repetir” <ConjuntoInstrucciones> ”Hasta” <Situacion> "FinRepetición"
           <Mientras> ::= “Mientras” <Situacion> “Repetir” <ConjuntoInstrucciones> "FinMientras"
 <Condicion> ::= <Si> | <Sino>
          <Si> ::= “Si” <Situacion> ”Hacer” <ConjuntoInstrucciones> “FinSi”
-         <Sino> ::= “Si” <Situacion> “Hacer” <ConjuntoInstrucciones> “Sino” <ConjuntoInstrucciones> “FinSiNo”
-<cambiar>::= "cambio" (<Asignacion>){<ListaCaso>}
-        <ListaCaso>::= <CasoLinea>|<CasoLinea><ListaCaso>|<ListaCaso><LineaPorDefecto>
-        <CasoLinea>::="Caso" <Numero>:<Instruccion> "Descanso"
-        <LineaPorDefecto>::= "PorDefecto":<Instrucciones> 
+         <Sino> ::= “Si” <Situacion> “Hacer” <ConjuntoInstrucciones> “Sino” <ConjuntoInstrucciones> “FinSi”
 <Leer> ::= “Leer” <Variable>
-<Mostrar> ::= “Mostrar” <Variable>";" | “Mostrar” <AlfaNumerico>";"
+<Mostrar> ::= “Mostrar” <Variable> | “Mostrar” <AlfaNumerico>
 <Aritmetica> ::= <NumeroReal> <OperadorAritmetico> <NumeroReal> | <Variable><OperadorAritmetico><Variable> | <Aritmetica><OperadorAritmetico><Aritmetica>
-<Asignacion> ::= <Variable> ”=” <AlfaNumerico>";" | <Variable> “=” <Aritmetica>";"
+<Asignacion> ::= <Variable> ”=” <AlfaNumerico> | <Variable> “=” <Aritmetica>
 <Situacion> ::= <IgualQue> | <DistintoQue> | <MayorQue> | <MenorQue> | <MayorIgualQue> | <MenorIgualQue>
              <IgualQue> ::= <Cadena> “==” <Cadena> | <NumeroReal> “==” <NumeroReal> | <Variable> “==” <Cadena> | <Variable> “==” <NumeroReal> 
              <DistintoQue> ::= <Cadena> ”!=” <Cadena> | <NumeroReal> “!=” <NumeroReal> | <Variable> “!=” <Cadena> | <Variable> “!=” <NumeroReal>
