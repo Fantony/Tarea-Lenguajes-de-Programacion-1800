@@ -1,0 +1,6 @@
+programa
+fn principal
+cadena
+entero
+decimal
+imprimir
