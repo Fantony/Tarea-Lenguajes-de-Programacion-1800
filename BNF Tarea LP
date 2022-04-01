@@ -1,49 +1,101 @@
 # BNF Tareita LP
  
-<programa> ::- "Programa" <Mayuscula><Alfanumerico> "{" <EstructuraGeneral> "}"
+<Programa> ::- "Programa" <Mayuscula><Alfanumerico> "{" <EstructuraGeneral> "}"
 
-<EstructuraGeneral> ::- <FuncionPrincipal> | [<Funcion> | {<Funcion>}]<EstructuraGeneral>[<Funcion> | {<Funcion>}]
-<FuncionPrincipal> ::- "Fn Principal()" "{" <LlamadaFunciones> "}"  
-<Funcion> ::- "Fn" <Mayuscula><Alfanumerico> "(" <Argumento> ")" "{" <ConjuntoInstrucciones> "}" | "Fn" <Mayuscula><Alfanumerico> "(" ")" "{" <ConjuntoInstrucciones> "}"
-<ConjuntoInstrucciones> ::- <Instruccion> | <ConjuntoInstrucciones><Instruccion>
-<LlamadaFunciones> ::- <LlamadaFuncion> | <LlamadaFunciones><LlamadaFuncion>
+
+<EstructuraGeneral> ::- <FuncionPrincipal> | <ConjuntoFunciones> <FuncionPrincipal> | <EstructuraGeneral> <ConjuntoFunciones>
+
+<FuncionPrincipal> ::- "Fn Principal()" "{" <ConjuntoLlamadaFunciones> "}"
+
+<ConjuntoLlamadaFunciones> ::- <LlamadaFuncion> | <ConjuntoLlamadaFunciones> <LlamadaFuncion>
+
 <LlamadaFuncion> ::- <Mayuscula><Alfanumerico> "(" <Argumento> ");" | <Mayuscula><Alfanumerico> "(" ");"
-<Argumento> ::- <Variable> | <AlfaNumerico> | <Argumento> "," <Variable> | <Argumento> "," <AlfaNumerico> 
-<Instruccion> ::- <DefinicionVariable> | <Ciclo> | <condicionsi> | <Leer> | <Mostrar> | <Asignacion> | <Aritmetica>
-<DefinicionVariable> ::= “Definir” <Variable><Tipo>";"
+
+<ConjuntoFunciones> ::- <Funcion> | <ConjuntoFunciones> <Funcion>
+
+<Funcion> ::- "Fn" <Mayuscula><Alfanumerico> "(" <Argumento> ")" "{" <ConjuntoInstrucciones> "}" | "Fn" <Mayuscula><Alfanumerico> "(" ")" "{" <ConjuntoInstrucciones> "}"
+
+<Argumento> ::- <Identificador> | <AlfaNumerico> | <Argumento> "," <Identificador> | <Argumento> "," <AlfaNumerico>
+
+<ConjuntoInstrucciones> ::= <Instruccion> | <ConjuntoInstrucciones> <Instruccion>
+
+<Instruccion> ::= <DeclararVariable> | <InicializarVariable> | <LlamadaFuncion> | <Ciclo> | <CondicionSi> | <Leer> | <Mostrar> | <Aritmetica>
+
+
+
+
 <Ciclo> ::= <Repeticion> | <Mientras>
-          <Repeticion> ::= “Repetir” <ConjuntoInstrucciones> ”Hasta” <Situacion> "FinRepetición"
-          <Mientras> ::= “Mientras” <Situacion> “Repetir” <ConjuntoInstrucciones> "FinMientras"
+
+<Repeticion> ::= "Repetir {" <ConjuntoInstrucciones> "}" "Hasta (" <OperacionLogica> ") FinRepeticion;"
+
+<Mientras> ::= "Mientras (" <OperacionLogica> ") {" <ConjuntoInstrucciones> "}"
+
+
+
+
 <condicionsi> ::- <si> | <si> <no> | <si> <sino> | <si> <sino> <no>
 
-<si> ::- "Si (" <operacionlogica> ") {" <conjuntoinstrucciones> "}"
+<si> ::- "Si (" <OperacionLogica> ") {" <ConjuntoInstrucciones> "}"
 
-<sino> ::- "Sino (" <operacionlogica> ") {" <conjuntoinstrucciones> "}" | <sino> "Sino (" <operacionlogica> ") {" <conjuntoinstrucciones> "}"
+<sino> ::- "Sino (" <OperacionLogica> ") {" <ConjuntoInstrucciones> "}" | <sino> "Sino (" <OperacionLogica> ") {" <ConjuntoInstrucciones> "}"
 
-<no> ::- "No" "{" <conjuntoinstrucciones> "}"
+<no> ::- "No" "{" <ConjuntoInstrucciones> "}"
 
-<Leer> ::= “Leer” <Variable>
-<Mostrar> ::= “Mostrar” <Variable>";" | “Mostrar” <AlfaNumerico>";"
-<Aritmetica> ::= <NumeroReal> <OperadorAritmetico> <NumeroReal> | <Variable><OperadorAritmetico><Variable> | <Aritmetica><OperadorAritmetico><Aritmetica>
-<Asignacion> ::= <Variable> ”=” <AlfaNumerico>";" | <Variable> “=” <Aritmetica>";"
-<Situacion> ::= <IgualQue> | <DistintoQue> | <MayorQue> | <MenorQue> | <MayorIgualQue> | <MenorIgualQue>
-             <IgualQue> ::= <Cadena> “==” <Cadena> | <NumeroReal> “==” <NumeroReal> | <Variable> “==” <Cadena> | <Variable> “==” <NumeroReal> 
-             <DistintoQue> ::= <Cadena> ”!=” <Cadena> | <NumeroReal> “!=” <NumeroReal> | <Variable> “!=” <Cadena> | <Variable> “!=” <NumeroReal>
-             <MayorQue> ::= <NumeroReal> “>” <NumeroReal> | <Variable> ”>” <NumeroReal> | <NumeroReal> “>” <Variable> | <Variable> “>” <Variable>
-             <MenorQue> ::= <NumeroReal> “<” <NumeroReal> | <Variable> ”<” <NumeroReal> | <NumeroReal> “<” <Variable> | <Variable> “<” <Variable>
-             <MayorIgualQue> ::= <NumeroReal> “>=” <NumeroReal> | <Variable> “>=” <NumeroReal> | <NumeroReal> “>=” <Variable> | <Variable> “>=” <Variable>
-             <MenorIgualQue> ::= <NumeroReal> “<=” <NumeroReal> | <Variable> ”<=” <NumeroReal> | <NumeroReal> “<=” <Variable> | <Variable> “<=” <Variable>
-<Tipo> ::= <Entero> | <Decimal> | <Cadena>
-<Variable> ::= <nombreVariable>
-<NumeroReal> ::= <Entero> | <Decimal>
-             <Entero> ::= <Numero> | <Signo><Numero>
-             <Decimal> ::= <Numero> “.” <Numero> | <Signo><Numero> ”.” <Numero>
-<Cadena> ::= “”<AlfaNumerico>””
-<AlfaNumerico> ::= <Mayusculas> | <Minusculas> | <Numero> | <AlfaNumerico><Mayuscula> | <AlfaNumerico><Minuscula> | <AlfaNumerico><Numero>
-<nombreVariable> ::= <Mayusculas> | <Minusculas> | <nombre><Mayuscula> | <nombre><Minuscula> | <nombre><Numero>
-<Mayusculas> ::= “A” | “B” | “C” | “D” | “E” | “F” | “G” | “H” | “I” | “J” | “K” | “L” | “M” | “N” | “O” | “P” | “Q” | “R” | “S” | “T” | “U” | “V” | “X” | “Y” | “Z”
-<Minusculas> ::= “a” | “b” | “c | “d” | “e” | “f” | “g” | “h” | “i” | “j” | “k” | “l” | “m” | “n” | “o” | “p” | “q” | “r” | “s” | “t” | “u” | “v” | “x” | “y” | “z”
-<Numero>::= <Digito> | <Numero><Digito>
-<Digito> ::= “0” | “1” | “2” | “3” | “4” | “5” | “6” | “7” | “8” | “9” 
-<OperadorAritmetico> ::= “+” | “-” | “*” | “/”
-<Signo> ::= “+” | “-”
+
+<Leer> ::- "Leer" <Identificador> ";"
+
+<Mostrar> ::- "Mostrar" <Identificador> ";" | "Mostrar" <Alfanumerico> ";"
+
+<DeclararVariable> ::- "Definir" <Identificador><Tipo> ";" | "Definir" <Identificador> ";"
+
+<InicializarVariable> ::- <Identificador> "=" <Alfanumerico> ";" | <Identificador> "=" <Aritmetica> ";" | <Identificador> "=" <Identificador> ";"
+
+<Aritmetica> ::- <NumeroReal> <OperadorAritmetico> <NumeroReal> | <Identificador> <OperadorAritmetico> <Identificador> | <Aritmetica> <OperadorAritmetico> <Aritmetica> | <Aritmetica> <OperadorAritmetico> <NumeroReal> | <NumeroReal> <OperadorAritmetico> <Aritmetica> | <Aritmetica> <OperadorAritmetico> <Identificador> | <Identificador> <OperadorAritmetico> <Aritmetica>
+
+<OperacionLogica> ::- <OperacionRelacional> | <DatoLogico> | <Negacion> "(" <DatoLogico> ")" | <Negacion> "(" <OperacionRelacional> ")" | <OperacionLogica> <OperadorLogico> <OperacionRelacional> | <Negacion> "(" <OperacionLogica> <OperadorLogico> <OperacionRelacional> ")" | <OperacionLogica> <OperadorLogico> <Negacion> "(" <OperacionRelacional> ")"
+
+<OperacionRelacional> ::- <NumeroReal> <OperadorRelacional> <NumeroReal> | <Identificador> <OperadorRelacional> <NumeroReal>  | <NumeroReal> <OperadorRelacional> <Variable> | <Identificador> <OperadorRelacional> <Identificador>
+
+<Tipo> ::- "Entero" | "Decimal" | "Cadena"
+
+<Identificador> ::- <Mayuscula> | <Identificador> <Alfanumerico>
+
+<Cadena> ::- <Comilla> <Letra> <Comilla> | <Comilla> <Cadena> <Comilla> <Letra>
+
+<Alfanumerico> ::- <Letra> | <Numero> | <Alfanumerico> <Letra> | <Alfanumerico> <Numero>
+
+<Letra> ::- <Mayuscula> | <Minuscula>
+
+<Mayuscula> ::- "A" | "B" | "C" | "D" | "E" | "F" | "G" | "H" | "I" | "J" | "K" | "L" | "M" | "N" | "O" | "P" | "Q" | "R" | "S" | "T" | "U" | "V" | "W" | "X" | "Y" | "Z" 
+
+<Minuscula> ::- "a" | "b" | "c" | "d" | "e" | "f" | "g" | "h" | "i" | "j" | "k" | "l" | "m" | "n" | "o" | "p" | "q" | "r" | "s" | "t" | "u" | "v" | "w" | "x" | "y" | "z" 
+
+<NumeroReal> ::- <Numero> | <Decimal>
+
+<Entero> ::- <Numero> | <Signo> <Numero>
+
+<Decimal> ::- <Numero> "." <Numero> | <Signo> <Numero> "." <Numero>
+
+<Numero> ::- <Digito> | <Numero> <Digito>
+
+<Digito> ::- "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
+
+<Simbolos> ::- <Operador>
+
+<Simbolo> ::- "|" | "/" | "\" | ";" | ":" | "#" | "$" | "&" | "[" | "]" | "(" | ")" | "<" | ">" | <Operador>
+
+<Operador> ::- <OperadorAritmetico> | <OperadorLogico> | <OperadorAritmetico> | <Operador> <OperadorAritmetico> | <Operador> <OperadorLogico> | <Operador>  <OperadorAritmetico>
+
+<OperadorAritmetico> ::- "+" | "-" | "*" | "/" | "%"
+
+<OperadorRelacional> ::- "==" | "!=" | "<" | ">" | "<=" | "<="
+
+<OperadorLogico> ::- "&&" | "||" | <Negacion>
+
+<Negacion> ::- "!"
+
+<DatoLogico> ::- "True" | "False"
+
+<Comilla> ::- """
+
+<Signo> ::- "+" | "-"
