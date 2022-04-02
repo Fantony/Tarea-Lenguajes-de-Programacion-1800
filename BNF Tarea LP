@@ -15,7 +15,7 @@
 
 <Funcion> ::- "Fn" <Mayuscula><Alfanumerico> "(" <Argumento> ")" "{" <ConjuntoInstrucciones> "}" | "Fn" <Mayuscula><Alfanumerico> "(" ")" "{" <ConjuntoInstrucciones> "}"
 
-<Argumento> ::- <Identificador> | <AlfaNumerico> | <Argumento> "," <Identificador> | <Argumento> "," <AlfaNumerico>
+<Argumento> ::- <Identificadores> | <AlfaNumerico> | <Argumento> "," <Identificadores> | <Argumento> "," <AlfaNumerico>
 
 <ConjuntoInstrucciones> ::= <Instruccion> | <ConjuntoInstrucciones> <Instruccion>
 
@@ -33,13 +33,13 @@
 
 
 
-<condicionsi> ::- <si> | <si> <no> | <si> <sino> | <si> <sino> <no>
+<CondicionSi> ::- <Si> | <Si> <No> | <Si> <SiNo> | <Si> <SiNo> <No>
 
-<si> ::- "Si (" <OperacionLogica> ") {" <ConjuntoInstrucciones> "}"
+<Si> ::- "Si (" <OperacionLogica> ") {" <ConjuntoInstrucciones> "}"
 
-<sino> ::- "Sino (" <OperacionLogica> ") {" <ConjuntoInstrucciones> "}" | <sino> "Sino (" <OperacionLogica> ") {" <ConjuntoInstrucciones> "}"
+<SiNo> ::- "Sino (" <OperacionLogica> ") {" <ConjuntoInstrucciones> "}" | <SiNo> "Sino (" <OperacionLogica> ") {" <ConjuntoInstrucciones> "}"
 
-<no> ::- "No" "{" <ConjuntoInstrucciones> "}"
+<No> ::- "No" "{" <ConjuntoInstrucciones> "}"
 
 
 <Leer> ::- "Leer" <Identificador> ";"
@@ -59,6 +59,8 @@
 <Tipo> ::- "Entero" | "Decimal" | "Cadena"
 
 <Identificador> ::- <Mayuscula> | <Identificador> <Alfanumerico>
+
+<Identificadores> ::- <Identificador> | <Identificadores> "," <Identificador>
 
 <Cadena> ::- <Comilla> <Letra> <Comilla> | <Comilla> <Cadena> <Comilla> <Letra>
 
