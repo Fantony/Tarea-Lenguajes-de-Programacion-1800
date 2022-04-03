@@ -1,5 +1,4 @@
-# BNF Tareita LP
- 
+
 <Programa> ::- "Programa" <Mayuscula><Alfanumerico> "{" <EstructuraGeneral> "}"
 
 
@@ -15,7 +14,7 @@
 
 <Funcion> ::- "Fn" <Mayuscula><Alfanumerico> "(" <Argumento> ")" "{" <ConjuntoInstrucciones> "}" | "Fn" <Mayuscula><Alfanumerico> "(" ")" "{" <ConjuntoInstrucciones> "}"
 
-<Argumento> ::- <Identificadores> | <AlfaNumerico> | <Argumento> "," <Identificadores> | <Argumento> "," <AlfaNumerico>
+<Argumento> ::- <Identificadores> | <Numero> | <Apostrofe> <AlfaNumerico> <Apostrofe> | <Argumento> "," <Identificadores> | <Argumento> "," <Numero> | <Argumento> "," <Apostrofe> <AlfaNumerico> <Apostrofe> | <Argumento>
 
 <ConjuntoInstrucciones> ::= <Instruccion> | <ConjuntoInstrucciones> <Instruccion>
 
@@ -44,11 +43,13 @@
 
 <Leer> ::- "Leer" <Identificador> ";"
 
-<Mostrar> ::- "Mostrar" <Identificador> ";" | "Mostrar" <Alfanumerico> ";"
+<Mostrar> ::- "Mostrar" <Argumento> ";" | "Mostrar" <Alfanumerico> ";"
 
-<DeclararVariable> ::- "Definir" <Identificador><Tipo> ";" | "Definir" <Identificador> ";"
+<DeclararVariable> ::- "Definir" <Identificador><Tipo> ";" | "Definir" <Identificadores> ";"
 
 <InicializarVariable> ::- <Identificador> "=" <Alfanumerico> ";" | <Identificador> "=" <Aritmetica> ";" | <Identificador> "=" <ConcatenarCadenas> ";" | <Identificador> "=" <ConcatenarIdentificadores> ";"
+
+<AsignarValorVariable> ::- 
 
 <Aritmetica> ::- <NumeroReal> <OperadorAritmetico> <NumeroReal> | <Identificador> <OperadorAritmetico> <Identificador> | <Aritmetica> <OperadorAritmetico> <Aritmetica> | <Aritmetica> <OperadorAritmetico> <NumeroReal> | <NumeroReal> <OperadorAritmetico> <Aritmetica> | <Aritmetica> <OperadorAritmetico> <Identificador> | <Identificador> <OperadorAritmetico> <Aritmetica>
 
