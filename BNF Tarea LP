@@ -65,6 +65,8 @@
 
 <Identificador> ::- <Mayuscula> | <Identificador> <Alfanumerico>
 
+<Contador> ::- <Identificadores> "++" | <Identificadores> "--"
+
 <Cadena> ::- <Apostrofe> <Alfanumerico> <Apostrofe> 
 
 <Alfanumerico> ::- <Texto> | <Numero> | <Alfanumerico> <Texto> | <Alfanumerico> <Numero>
