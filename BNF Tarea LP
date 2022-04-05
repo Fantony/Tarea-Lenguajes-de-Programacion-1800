@@ -18,7 +18,7 @@
 
 <ConjuntoInstrucciones> ::= <Instruccion> | <ConjuntoInstrucciones> <Instruccion>
 
-<Instruccion> ::= <DeclararVariable> | <InicializarVariable> | <LlamadaFuncion> | <Ciclo> | <CondicionSi> | <Leer> | <Mostrar> | <Aritmetica>
+<Instruccion> ::= <DeclararVariable> | <InicializarVariable> | <LlamadaFuncion> | <Ciclo> | <CondicionSi> | <Leer> | <Mostrar>
 
 
 
@@ -48,8 +48,6 @@
 <DeclararVariable> ::- "Definir" <Identificador><Tipo> ";" | "Definir" <Identificadores> ";"
 
 <InicializarVariable> ::- <Identificador> "=" <Alfanumerico> ";" | <Identificador> "=" <Aritmetica> ";" | <Identificador> "=" <ConcatenarCadenas> ";" | <Identificador> "=" <ConcatenarIdentificadores> ";"
-
-<AsignarValorVariable> ::- 
 
 <Aritmetica> ::- <NumeroReal> <OperadorAritmetico> <NumeroReal> | <Identificador> <OperadorAritmetico> <Identificador> | <Aritmetica> <OperadorAritmetico> <Aritmetica> | <Aritmetica> <OperadorAritmetico> <NumeroReal> | <NumeroReal> <OperadorAritmetico> <Aritmetica> | <Aritmetica> <OperadorAritmetico> <Identificador> | <Identificador> <OperadorAritmetico> <Aritmetica>
 
