@@ -29,8 +29,11 @@
 
 <Mientras> ::= "Mientras (" <OperacionLogica> ") {" <ConjuntoInstrucciones> "}"
 
+<Caso> ::= "Caso " <Numero> ": {" <ConjuntoInstrucciones> "}"
 
+<Casos> ::= <Caso> | <Caso> <Casos>
 
+<Segun> ::= "Segun(" <Identificador> ") {" <Casos> "}"
 
 <CondicionSi> ::- <Si> | <Si> <No> | <Si> <SiNo> | <Si> <SiNo> <No>
 
