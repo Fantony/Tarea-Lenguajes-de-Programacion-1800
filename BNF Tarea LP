@@ -29,11 +29,17 @@
 
 <Mientras> ::= "Mientras (" <OperacionLogica> ") {" <ConjuntoInstrucciones> "}"
 
-<Caso> ::= "Caso " <Numero> ": {" <ConjuntoInstrucciones> "}"
 
-<Casos> ::= <Caso> | <Caso> <Casos>
+<Caso> ::= "Caso " <Numero> ": {" <ConjuntoInstrucciones> "}" | "Caso " <Apostrofe><Alfanumerico><Apostrofe> ": {" <ConjuntoInstrucciones> "}"
 
-<Segun> ::= "Segun(" <Identificador> ") {" <Casos> "}"
+<CasoDefecto> ::= "Defecto: {" <ConjuntoInstrucciones> "}"
+
+<Casos> ::= <Caso> |  <Casos> <Caso>
+
+<ConjuntoCasos> ::= <Casos> | <Casos> <CasoDefecto>
+
+<Segun> ::= "Segun (" <Identificador> ") {" <ConjuntoCasos> "}"
+
 
 <CondicionSi> ::- <Si> | <Si> <No> | <Si> <SiNo> | <Si> <SiNo> <No>
 
