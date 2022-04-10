@@ -1,10 +1,9 @@
 
 <Programa> ::- "Programa" <Mayuscula><Alfanumerico> "{" <EstructuraGeneral> "}"
 
-
 <EstructuraGeneral> ::- <FuncionPrincipal> | <ConjuntoFunciones> <FuncionPrincipal> | <EstructuraGeneral> <ConjuntoFunciones>
 
-<FuncionPrincipal> ::- "Fn" "_" "Principal()" "{" <ConjuntoLlamadaFunciones> "}"
+<FuncionPrincipal> ::- "Fn" "_" "Principal" "(" ")" "{" <ConjuntoLlamadaFunciones> "}"
 
 <ConjuntoLlamadaFunciones> ::- <LlamadaFuncion> | <ConjuntoLlamadaFunciones> <LlamadaFuncion>
 
@@ -20,15 +19,11 @@
 
 <Instruccion> ::= <DeclararVariable> | <InicializarVariable> | <LlamadaFuncion> | <Ciclo> | <CondicionSi> | <Leer> | <Mostrar> | <Contador>
 
-
-
-
 <Ciclo> ::= <Repeticion> | <Mientras>
 
 <Repeticion> ::= "Repetir " "{" <ConjuntoInstrucciones> "}" "Hasta" "(" <OperacionLogica> ")" "FinRepeticion;"
 
 <Mientras> ::= "Mientras" "(" <OperacionLogica> ")" "{" <ConjuntoInstrucciones> "}"
-
 
 <Caso> ::= "Caso " <Numero> ":" "{" <ConjuntoInstrucciones> "}" | "Caso " <Apostrofe><Alfanumerico><Apostrofe> ":" "{" <ConjuntoInstrucciones> "}"
 
@@ -40,7 +35,6 @@
 
 <Segun> ::= "Segun" "(" <Identificador> ")" "{" <ConjuntoCasos> "}"
 
-
 <CondicionSi> ::- <Si> | <Si> <No> | <Si> <SiNo> | <Si> <SiNo> <No>
 
 <Si> ::- "Si" "(" <OperacionLogica> ")" "{" <ConjuntoInstrucciones> "}"
@@ -48,7 +42,6 @@
 <SiNo> ::- "Sino" "(" <OperacionLogica> ")" "{" <ConjuntoInstrucciones> "}" | <SiNo> "Sino" "(" <OperacionLogica> ")" "{" <ConjuntoInstrucciones> "}"
 
 <No> ::- "No" "{" <ConjuntoInstrucciones> "}"
-
 
 <Leer> ::- "Leer" <Identificador> ";"
 
