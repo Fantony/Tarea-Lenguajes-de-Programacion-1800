@@ -72,7 +72,7 @@
 
 <Identificadores> ::- <Identificador> | <Identificadores> "," <Identificador>
 
-<Identificador> ::- <Clave> | <Identificador> <Letra> | <Identificador> <AlfaNumerico>
+<Identificador> ::- <Clave> <Letra> | <Identificador> <AlfaNumerico>
 
 <Contador> ::- <Identificador><OperadorControl>";" | <Identificador> "=" <Identificador><OperadorAritmetico><NumeroReal>";" | <Identificador><OperadorControlAlmacenado><NumeroReal>";" | <Identificador> "=" <Identificador><OperadorAritmetico><Identificador>";" | <Identificador><OperadorControlAlmacenado><Identificador>";"
 
