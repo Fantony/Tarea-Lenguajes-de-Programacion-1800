@@ -4,15 +4,15 @@
 
 <EstructuraGeneral> ::- <FuncionPrincipal> | <ConjuntoFunciones> <FuncionPrincipal> | <EstructuraGeneral> <ConjuntoFunciones>
 
-<FuncionPrincipal> ::- "Fn Principal()" "{" <ConjuntoLlamadaFunciones> "}"
+<FuncionPrincipal> ::- "Fn" "_" "Principal()" "{" <ConjuntoLlamadaFunciones> "}"
 
 <ConjuntoLlamadaFunciones> ::- <LlamadaFuncion> | <ConjuntoLlamadaFunciones> <LlamadaFuncion>
 
-<LlamadaFuncion> ::- <Mayuscula><Alfanumerico> "(" <Argumento> ");" | <Mayuscula><Alfanumerico> "(" ");"
+<LlamadaFuncion> ::- <Mayuscula><Alfanumerico> "(" <Argumento> ")" ";" | <Mayuscula><Alfanumerico> "(" ")" ";"
 
 <ConjuntoFunciones> ::- <Funcion> | <ConjuntoFunciones> <Funcion>
 
-<Funcion> ::- "Fn" <Mayuscula><Alfanumerico> "(" <Argumento> ")" "{" <ConjuntoInstrucciones> "}" | "Fn" <Mayuscula><Alfanumerico> "(" ")" "{" <ConjuntoInstrucciones> "}"
+<Funcion> ::- "Fn" "-" <Mayuscula><Alfanumerico> "(" <Argumento> ")" "{" <ConjuntoInstrucciones> "}" | "Fn" <Mayuscula><Alfanumerico> "(" ")" "{" <ConjuntoInstrucciones> "}"
 
 <Argumento> ::- <Identificadores> | <Numero> | <Apostrofe> <AlfaNumerico> <Apostrofe> | <Argumento> "," <Identificadores> | <Argumento> "," <Numero> | <Argumento> "," <Apostrofe> <AlfaNumerico> <Apostrofe> | <Argumento>
 
@@ -25,27 +25,27 @@
 
 <Ciclo> ::= <Repeticion> | <Mientras>
 
-<Repeticion> ::= "Repetir {" <ConjuntoInstrucciones> "}" "Hasta (" <OperacionLogica> ") FinRepeticion;"
+<Repeticion> ::= "Repetir " "{" <ConjuntoInstrucciones> "}" "Hasta" "(" <OperacionLogica> ")" "FinRepeticion;"
 
-<Mientras> ::= "Mientras (" <OperacionLogica> ") {" <ConjuntoInstrucciones> "}"
+<Mientras> ::= "Mientras" "(" <OperacionLogica> ")" "{" <ConjuntoInstrucciones> "}"
 
 
-<Caso> ::= "Caso " <Numero> ": {" <ConjuntoInstrucciones> "}" | "Caso " <Apostrofe><Alfanumerico><Apostrofe> ": {" <ConjuntoInstrucciones> "}"
+<Caso> ::= "Caso " <Numero> ":" "{" <ConjuntoInstrucciones> "}" | "Caso " <Apostrofe><Alfanumerico><Apostrofe> ":" "{" <ConjuntoInstrucciones> "}"
 
-<CasoDefecto> ::= "Defecto: {" <ConjuntoInstrucciones> "}"
+<CasoDefecto> ::= "Defecto:" "{" <ConjuntoInstrucciones> "}"
 
 <Casos> ::= <Caso> |  <Casos> <Caso>
 
 <ConjuntoCasos> ::= <Casos> | <Casos> <CasoDefecto>
 
-<Segun> ::= "Segun (" <Identificador> ") {" <ConjuntoCasos> "}"
+<Segun> ::= "Segun" "(" <Identificador> ")" "{" <ConjuntoCasos> "}"
 
 
 <CondicionSi> ::- <Si> | <Si> <No> | <Si> <SiNo> | <Si> <SiNo> <No>
 
-<Si> ::- "Si (" <OperacionLogica> ") {" <ConjuntoInstrucciones> "}"
+<Si> ::- "Si" "(" <OperacionLogica> ")" "{" <ConjuntoInstrucciones> "}"
 
-<SiNo> ::- "Sino (" <OperacionLogica> ") {" <ConjuntoInstrucciones> "}" | <SiNo> "Sino (" <OperacionLogica> ") {" <ConjuntoInstrucciones> "}"
+<SiNo> ::- "Sino" "(" <OperacionLogica> ")" "{" <ConjuntoInstrucciones> "}" | <SiNo> "Sino" "(" <OperacionLogica> ")" "{" <ConjuntoInstrucciones> "}"
 
 <No> ::- "No" "{" <ConjuntoInstrucciones> "}"
 
@@ -72,7 +72,7 @@
 
 <Identificadores> ::- <Identificador> | <Identificadores> "," <Identificador>
 
-<Identificador> ::- <Mayuscula> | <Identificador> <Alfanumerico>
+<Identificador> ::- <Clave> | <Identificador> <Letra> <AlfaNumerico>
 
 <Contador> ::- <Identificador><OperadorControl>";" | <Identificador> "=" <Identificador><OperadorAritmetico><NumeroReal>";" | <Identificador><OperadorControlAlmacenado><NumeroReal>";" | <Identificador> "=" <Identificador><OperadorAritmetico><Identificador>";" | <Identificador><OperadorControlAlmacenado><Identificador>";"
 
@@ -121,3 +121,5 @@
 <Apostrofe> ::- "'"
 
 <Signo> ::- "+" | "-"
+
+<Clave> ::- "#"
