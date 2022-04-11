@@ -260,6 +260,93 @@ int main(int argc[], char *argv[]){
 				if (simbolo == '{')
 					Estado = q44;
 				break;
+			case q36:
+				if (simbolo >= 'A' && simbolo <= 'Z')
+					Estado = q37;	
+				break;
+			case q37:
+				if (simbolo >= 'A' && simbolo <= 'Z' || simbolo >= 'a' && simbolo <= 'z' || simbolo >= '0' && simbolo <= '9')
+					Estado = q37;
+				if (simbolo == ')')
+					Estado = q35;
+				if (simbolo == ',')
+					Estado = q34;
+				break;
+			case q38:
+				if (simbolo >= 'A' && simbolo <= 'Z' || simbolo >= 'a' && simbolo <= 'z' || simbolo >= '0' && simbolo <= '9')
+					Estado = q39;
+				break;
+			case q39:
+				if (simbolo >= 'A' && simbolo <= 'Z' || simbolo >= 'a' && simbolo <= 'z' || simbolo >= '0' && simbolo <= '9')
+					Estado = q39;
+				if (simbolo == '\'')
+					Estado = q40;
+				break;
+			case q40:
+				if (simbolo == ')')
+					Estado = q35;
+				if (simbolo == ',')
+					Estado = q34;
+				break;
+			case q41:
+				if (simbolo >= '0' && simbolo <= '9')
+					Estado = q41;
+				if (simbolo == ')')
+					Estado = q35;
+				if (simbolo == '.')
+					Estado = q42;
+				if (simbolo == ',')
+					Estado = q34;
+				break;
+			case q42:
+				if (simbolo >= '0' && simbolo <= '9')
+					Estado = q43;
+				break;
+
+
+
+			case q43:
+				if (simbolo >= '0' && simbolo <= '9')
+					Estado = q43;
+				if (simbolo == ')')
+					Estado = q35;
+				if (simbolo == ',')
+					Estado = q34;
+				break;
+			case q44:
+				if (simbolo == ' ' || simbolo == '\n')
+					Estado = q45;
+				break;
+			case q45:
+				if (simbolo >= 'A' && simbolo <= 'Z' || simbolo >= 'a' && simbolo <= 'z' || simbolo >= '0' && simbolo <= '9')
+					Estado = q39;
+				break;
+			case q46:
+				if (simbolo >= 'A' && simbolo <= 'Z' || simbolo >= 'a' && simbolo <= 'z' || simbolo >= '0' && simbolo <= '9')
+					Estado = q39;
+				if (simbolo == '\'')
+					Estado = q40;
+				break;
+			case q47:
+				if (simbolo == ')')
+					Estado = q35;
+				if (simbolo == ',')
+					Estado = q34;
+				break;
+			case q48:
+				if (simbolo >= '0' && simbolo <= '9')
+					Estado = q41;
+				if (simbolo == ')')
+					Estado = q35;
+				if (simbolo == '.')
+					Estado = q42;
+				if (simbolo == ',')
+					Estado = q34;
+				break;
+			case q49:
+				if (simbolo >= '0' && simbolo <= '9')
+					Estado = q43;
+				break;
 			
 		}
 	}
