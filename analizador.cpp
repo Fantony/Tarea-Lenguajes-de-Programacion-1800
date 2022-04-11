@@ -17,7 +17,7 @@ int main(int argc[], char *argv[]){
 	string nombreArchivoEntrada;
 	string nombreArchivoSalida;
 	string contenido;
-	enum TEstado {qe, qa, q0, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13};
+	enum TEstado {qe, qa, q0, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13, q14, q15, q16, q17, q18, q19, q20, q21, q22, q23, q24, q25, q26, q27, q28, q29, q30, q31, q32, q33, q34, q35, q36, q37, q38, q39, q40, q41, q42, q43, q44, q45, q46, q47, q48, q49, q50, q51, q51, q53, q54, q55, q56, q57, q58, q59, q60, q61, q62, q63, q64, q65, q66, q67, q68, q69, q70};
 	
 	TEstado Estado;
 	
@@ -52,48 +52,71 @@ int main(int argc[], char *argv[]){
 					Estado = q2;
 				break;
 			case q2:
-				if (simbolo >= 'A' && simbolo <= 'Z')
-					Estado = q1;
+				if (simbolo >= 'A' && simbolo <= 'Z'){
+					Estado = q3;
+				} else if (simbolo == ' '){
+					Estado = q2;
+				}
 				break;
 			case q3:
-				if (simbolo >= 'A' && simbolo <= 'Z')
-					Estado = q1;
+				if (simbolo >= 'A' && simbolo <= 'Z' || simbolo >= 'a' && simbolo <= 'z' || simbolo >= '0' && simbolo <= '9')
+					Estado = q3;
+				if (simbolo == ' ')
+					Estado = q4;
 				break;
 			case q4:
-				if (simbolo >= 'A' && simbolo <= 'Z')
-					Estado = q1;
+				if (simbolo == '{')
+					Estado = q5;
+				if (simbolo == ' ')
+					Estado = q4;
 				break;
 			case q5:
-				if (simbolo >= 'A' && simbolo <= 'Z')
-					Estado = q1;
+				if (simbolo == ' ')
+					Estado = q5;
+				if (simbolo == '\n')
+					Estado = q6;
 				break;
 			case q6:
+				if (simbolo == ' ' || simbolo == '\n')
+					Estado = q6;
 				if (simbolo >= 'A' && simbolo <= 'Z')
-					Estado = q1;
+					Estado = q7;
 				break;
 			case q7:
-				if (simbolo >= 'A' && simbolo <= 'Z')
-					Estado = q1;
+				if (simbolo >= 'a' && simbolo <= 'z')
+					Estado = q7;
+				if (simbolo == ' ')
+					Estado = q8;
 				break;
 			case q8:
-				if (simbolo >= 'A' && simbolo <= 'Z')
-					Estado = q1;
+				if (simbolo == ' ')
+					Estado = q8;
+				if (simbolo == '_')
+					Estado = q9;
+				if (simbolo == '-')
+					Estado = q31;
 				break;
 			case q9:
 				if (simbolo >= 'A' && simbolo <= 'Z')
-					Estado = q1;
+					Estado = q10;
 				break;
 			case q10:
-				if (simbolo >= 'A' && simbolo <= 'Z')
-					Estado = q1;
+				if (simbolo >= 'a' && simbolo <= 'z')
+					Estado = q10;
+				if (simbolo == ' ')
+					Estado = q11;
 				break;
 			case q11:
-				if (simbolo >= 'A' && simbolo <= 'Z')
-					Estado = q1;
+				if (simbolo == ' ')
+					Estado = q11;
+				if (simbolo == '(')
+					Estado = q12;
 				break;
 			case q12:
-				if (simbolo >= 'A' && simbolo <= 'Z')
-					Estado = q1;
+				if (simbolo == ' ')
+					Estado = q12;
+				if (simbolo == ')')
+					Estado = q13;
 				break;
 			case q13:
 				if (simbolo >= 'A' && simbolo <= 'Z')
