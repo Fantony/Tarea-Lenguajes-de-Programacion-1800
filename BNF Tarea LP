@@ -7,7 +7,7 @@
 
 <ConjuntoLlamadaFunciones> ::- <LlamadaFuncion> | <ConjuntoLlamadaFunciones> <LlamadaFuncion>
 
-<LlamadaFuncion> ::- <Mayuscula><Alfanumerico> "(" <Argumento> ")" ";" | <Mayuscula><Alfanumerico> "(" ")" ";"
+<LlamadaFuncion> ::- "-" <Mayuscula><Alfanumerico> "(" <Argumento> ")" ";" | "-" <Mayuscula><Alfanumerico> "(" ")" ";"
 
 <ConjuntoFunciones> ::- <Funcion> | <ConjuntoFunciones> <Funcion>
 
