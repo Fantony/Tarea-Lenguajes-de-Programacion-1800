@@ -124,8 +124,6 @@ int main(int argc[], char *argv[]){
 				if (simbolo == '{')
 					Estado = q14;
 				break;
-
-
 			case q14:
 				if (simbolo == ' ')
 					Estado = q14;
@@ -193,6 +191,74 @@ int main(int argc[], char *argv[]){
 			case q24:
 				if (simbolo == ')')
 					Estado = q19;
+				if (simbolo == ',')
+					Estado = q18;
+				break;
+			case q25:
+				if (simbolo >= '0' && simbolo <= '9')
+					Estado = q25;
+				if (simbolo == ')')
+					Estado = q19;
+				if (simbolo == ',')
+					Estado = q18;
+				if (simbolo == '.')
+					Estado = q26;
+				break;
+			case q26:
+				if (simbolo >= '0' && simbolo <= '9')
+					Estado = q27;
+				break;
+			case q27:
+				if (simbolo >= '0' && simbolo <= '9')
+					Estado = q27;
+				if (simbolo == ')')
+					Estado = q19;
+				if (simbolo == ',')
+					Estado = q18;
+				break;
+			case q28:
+				if (simbolo == ' ' || simbolo == '\n')
+					Estado = q15;
+				break;
+			case q29:
+				if (simbolo == ' ' || simbolo == '\n')
+					Estado = q30;
+				break;
+			case q30:
+				if (simbolo == ' ' || simbolo == '\n')
+					Estado = q30;
+				if (simbolo >= 'A' && simbolo <= 'Z')
+					Estado = q7;
+				if (simbolo == '}')
+					Estado = qa;
+				break;
+			case q31:
+				if (simbolo >= 'A' && simbolo <= 'Z')
+					Estado = q32;
+				break;
+			case q32:
+				if (simbolo >= 'A' && simbolo <= 'Z' || simbolo >= 'a' && simbolo <= 'z' || simbolo >= '0' && simbolo <= '9')
+					Estado = q32;
+				if (simbolo == ' ')
+					Estado = q33;
+				break;
+			case q33:
+				if (simbolo == ' ')
+					Estado = q33;
+				if (simbolo == '(')
+					Estado = q34;
+				break;
+
+
+			case q34:
+				if (simbolo == ')')
+					Estado = q35;
+				break;
+			case q35:
+				if (simbolo == ' ')
+					Estado = q35;
+				if (simbolo == '{')
+					Estado = q44;
 				break;
 			
 		}
