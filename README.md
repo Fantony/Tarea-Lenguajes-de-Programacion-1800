@@ -21,14 +21,14 @@ Los programas en nuestro lenguaje podrán comenzar con la palabra reservada `Pro
 ```bash
 Programa HolaMundo {
 
-    Fn Principal(){
+    Fn _Principal(){
         Mostrar "Hola Mundo";
     }
 
 }
 ```
 ## Mi primer programa
-El nombre del programa definido por el usuario solo tiene la restricción que el primer carácter debe ser una letra Mayúscula y si luego de este el usuario ingresa más caracteres, estos podrán ser alfanuméricos (letras del alfabeto mayúsculas, minúsculas y los números), también los nombres de las funciones en este lenguaje deberán seguir la misma regla definida para el nombre del programa.
+El nombre del programa definido por el usuario como se menciona anteriormente, solo tiene la restricción que el `primer carácter` debe ser una `letra Mayúscula` y si `luego` de este el usuario ingresa más `caracteres`, estos podrán ser `alfanuméricos` (letras del alfabeto mayúsculas, minúsculas y los números), también los nombres de las funciones en este lenguaje deberán seguir la misma regla definida para el nombre del programa exceptuando que la `función base` de todos los programas creados comenzara con un guion bajo `"_"` seguido de la palabra reservada `Principal`
 ```bash
 Programa MiPrimErprOgraMa {
 
