@@ -13,7 +13,7 @@ string leerArchivo(string archivoLectura);
 
 int main(int argc[], char *argv[]){
 	
-	string tablaSimbolos[500] = {"Mientras","Programa","Fn","Principal","Segun","Caso","Para","Repeticion","Definir","Leer","Mostrar","Si","Sino","Entonces","Entero","Cadena","Decimal"};
+	string tablaSimbolos[500] = {"Mientras","Programa","Fn","Principal","Segun","Caso","Repetir","Definir","Leer","Mostrar","Si","Sino","No","Entero","Cadena","Decimal","Defecto","Hasta","Finrepeticion","Verdadero","Falso"};
 	string nombreArchivoEntrada;
 	string nombreArchivoSalida;
 	string contenido;
