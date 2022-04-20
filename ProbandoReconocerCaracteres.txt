@@ -1,0 +1,7 @@
+Programa Bnf123{
+Fn_Principal(){
+cadena1=Hola;
+imprimir(cadena1);
+}
+}
+
