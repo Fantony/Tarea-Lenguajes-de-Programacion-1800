@@ -1,0 +1,40 @@
+Programa Test
+{
+	Fn _Principal(){
+		-Definir();
+		-Recibir();
+		-Calcular(#numero1,#numero2);
+		-Mostrar(#suma);
+	}
+
+	Fn -Definir(){
+		Definir #numero1 Decimal;
+		Definir #numero2 Decimal;
+		Definir #suma Decimal;
+		Definir #iterador Entero;
+	}
+
+	Fn -Recibir(){
+		Leer #numero1;
+		Leer #numero2;
+	}
+
+	Fn -Calcular(#numero1, #numero2){
+		Mientras(#iterador<10){
+			#suma = #numero1 + #numero2;
+			#numero1 += #suma;
+			Si(#numero1 == #suma){
+				#numero1 = #numero1/2;
+			}
+			No{
+				#numero1 = #numero1;
+			}
+			#iterador ++;
+		}
+	}
+
+	Fn -Mostrar(#suma){
+		Mostrar #suma;
+	}
+
+}
