@@ -1071,6 +1071,363 @@ int main(int argc[], char *argv[]){
 				if (simbolo == ';')
 					Estado = q157;
 				break;
+			case q152:
+				if (simbolo >= 'A' && simbolo <= 'Z')
+					Estado = q127;
+				break;
+			case q153:
+				if (simbolo >= 'A' && simbolo <= 'Z' || simbolo >= 'a' && simbolo <= 'z' || simbolo >= '0' && simbolo <= '9')
+					Estado = q153;
+				if (simbolo == ';')
+					Estado = q157;
+				if (simbolo == '+')
+					Estado = q156;
+				if (simbolo == ' ')
+					Estado = q154;
+				if (simbolo == '-' || simbolo == '*' || simbolo == '/')
+					Estado = q155;
+				break;
+			case q154:
+				if (simbolo == '+')
+					Estado = q156;
+				if (simbolo == ' ')
+					Estado = q154;
+				if (simbolo == '-' || simbolo == '*' || simbolo == '/')
+					Estado = q155;
+				break;
+			case q155:
+				if (simbolo >= '0' && simbolo >= '9')
+					Estado = q158;
+				if (simbolo == '#')
+					Estado = q161;
+				if (simbolo == ' ')
+					Estado = q155;
+				break;
+			case q156:
+				if (simbolo >= '0' && simbolo >= '9')
+					Estado = q158;
+				if (simbolo == '#')
+					Estado = q161;
+				if (simbolo == ' ')
+					Estado = q156;
+				if (simbolo == '\'')
+					Estado = q165;
+				break;
+			case q157:
+				if (simbolo == ' ' || simbolo == '\n')
+					Estado = q131;
+				break;
+			case q158:
+				if (simbolo >= '0' && simbolo <= '9')
+					Estado = q158;
+				if (simbolo == ' ')
+					Estado = q159;
+				if (simbolo == '-' || simbolo == '*' || simbolo == '/' || simbolo == '+')
+					Estado = q160;
+				if (simbolo == '.')
+					Estado = q163;
+				if (simbolo == ';')
+					Estado = q157;
+				break;
+			case q159:
+				if (simbolo == ' ')
+					Estado = q159;
+				if (simbolo == '-' || simbolo == '*' || simbolo == '/' || simbolo == '+')
+					Estado = q160;
+				if (simbolo == ';')
+					Estado = q157;
+				break;
+			case q160:
+				if (simbolo == ' ')
+					Estado = q160;
+				if (simbolo == '#')
+					Estado = q161;
+				if (simbolo >= '0' && simbolo <= '9')
+					Estado = q158;
+				break;
+			case q161:
+				if (simbolo >= 'A' && simbolo <= 'Z' || simbolo >= 'a' && simbolo <= 'z' || simbolo >= '0' && simbolo <= '9')
+					Estado = q162;
+				break;
+			case q162:
+				if (simbolo >= 'A' && simbolo <= 'Z' || simbolo >= 'a' && simbolo <= 'z' || simbolo >= '0' && simbolo <= '9')
+					Estado = q162;
+				if (simbolo == ';')
+					Estado = q157;
+				if (simbolo == '-' || simbolo == '*' || simbolo == '/' || simbolo == '+')
+					Estado = q160;
+				if (simbolo == ' ')
+					Estado = q159;
+				break;
+			case q163:
+				if (simbolo >= '0' && simbolo <= '9')
+					Estado = q164;
+				break;
+			case q164:
+				if (simbolo >= '0' && simbolo <= '9')
+					Estado = q164;
+				if (simbolo == ' ')
+					Estado = q159;
+				if (simbolo == '-' || simbolo == '*' || simbolo == '/' || simbolo == '+')
+					Estado = q160;
+				if (simbolo == ';')
+					Estado = q157;
+				break;
+			case q165:
+				if (simbolo >= 'A' && simbolo <= 'Z' || simbolo >= 'a' && simbolo <= 'z' || simbolo >= '0' && simbolo <= '9')
+					Estado = q166;
+				break;
+			case q166:
+				if (simbolo >= 'A' && simbolo <= 'Z' || simbolo >= 'a' && simbolo <= 'z' || simbolo >= '0' && simbolo <= '9')
+					Estado = q166;
+				if (simbolo == '\'')
+					Estado = q167;
+				break;
+			case q167:
+				if (simbolo == ';')
+					Estado = q157;
+				if (simbolo == ' ')
+					Estado = q168;
+				if (simbolo == '+')
+					Estado = q169;
+				break;
+			case q168:
+				if (simbolo == ' ')
+					Estado = q168;
+				if (simbolo == ';')
+					Estado = q157;
+				if (simbolo == '+')
+					Estado = q169;
+				break;
+			case q169:
+				if (simbolo == ' ')
+					Estado = q169;
+				if (simbolo == '\'')
+					Estado = q165;
+				if (simbolo == '#')
+					Estado = q170;
+				break;
+			case q170:
+				if (simbolo >= 'A' && simbolo <= 'Z')
+					Estado = q171;
+				break;
+			case q171:
+				if (simbolo >= 'A' && simbolo <= 'Z' || simbolo >= 'a' && simbolo <= 'z' || simbolo >= '0' && simbolo <= '9')
+					Estado = q171;
+				if (simbolo == '+')
+					Estado = q169;
+				if (simbolo == ' ')
+					Estado = q168;
+				if (simbolo == ';')
+					Estado = q157;
+				break;
+			case q172:
+				if (simbolo >= 'A' && simbolo >= 'Z')
+					Estado = q173;
+				break;
+			case q173:
+				if (simbolo >= 'A' && simbolo <= 'Z' || simbolo >= 'a' && simbolo <= 'z' || simbolo >= '0' && simbolo <= '9')
+					Estado = q173;
+				if (simbolo == ' ')
+					Estado = q174;
+				if (simbolo == '{')
+					Estado = q175;
+				break;
+			case q174:
+				if (simbolo == ' ')
+					Estado = q174;
+				if (simbolo == '{')
+					Estado = q175;
+				break;
+			case q175:
+				if (simbolo >= '0' && simbolo >= '9')
+					Estado = q182;
+				if (simbolo == '\'')
+					Estado = q179;
+				if (simbolo == '#')
+					Estado = q177;
+				if (simbolo == ')')
+					Estado = q176;
+				break;
+			case q176:
+				if (simbolo == ' ')
+					Estado = q176;
+				if (simbolo == ';')
+					Estado = q185;
+				break;
+			case q177:
+				if (simbolo >= 'A' && simbolo >= 'Z')
+					Estado = q178;
+				break;
+			case q178:
+				if (simbolo >= 'A' && simbolo <= 'Z' || simbolo >= 'a' && simbolo <= 'z' || simbolo >= '0' && simbolo <= '9')
+					Estado = q178;
+				if (simbolo == ',')
+					Estado = q175;
+				if (simbolo == ')')
+					Estado = q176;
+				break;
+			case q179:
+				if (simbolo >= 'A' && simbolo <= 'Z' || simbolo >= 'a' && simbolo <= 'z' || simbolo >= '0' && simbolo <= '9')
+					Estado = q180;
+				break;
+			case q180:
+				if (simbolo >= 'A' && simbolo <= 'Z' || simbolo >= 'a' && simbolo <= 'z' || simbolo >= '0' && simbolo <= '9')
+					Estado = q180;
+				if (simbolo == '\'')
+					Estado = q181;
+				break;
+			case q181:
+				if (simbolo == '\'')
+					Estado = q175;
+				if (simbolo == ')')
+					Estado = q176;
+				break;
+			case q182:
+				if (simbolo >= '0' && simbolo >= '9')
+					Estado = q182;
+				if (simbolo == ',')
+					Estado = q175;
+				if (simbolo == ')')
+					Estado = q176;
+				if (simbolo == '.')
+					Estado = q183;
+				break;
+			case q183:
+				if (simbolo >= '0' && simbolo >= '9')
+					Estado = q184;
+				break;
+			case q184:
+				if (simbolo >= '0' && simbolo >= '9')
+					Estado = q184;
+				if (simbolo == ')')
+					Estado = q176;
+				break;
+			case q185:
+				if (simbolo == ' ' || simbolo == '\n')
+					Estado = q131;
+				break;
+			case q186:
+				if (simbolo >= 'a' && simbolo <= 'z')
+					Estado = q186;
+				if (simbolo == ' ')
+					Estado = q187;
+				break;
+			case q187:
+				if (simbolo == ' ')
+					Estado = q187;
+				if (simbolo == '#')
+					Estado = q188;
+				break;
+			case q188:
+				if (simbolo >= 'A' && simbolo <= 'Z')
+					Estado = q189;
+				break;
+
+
+			case q189:
+				if (simbolo >= 'A' && simbolo <= 'Z' || simbolo >= 'a' && simbolo <= 'z' || simbolo >= '0' && simbolo <= '9')
+					Estado = q189;
+				if (simbolo == ' ')
+					Estado = q190;
+				if (simbolo == ';')
+					Estado = q192;
+				if (simbolo == ',')
+					Estado = q187;
+				break;
+			case q190:
+				if (simbolo == ' ')
+					Estado = q190;
+				if (simbolo == ',')
+					Estado = q187;
+				if (simbolo >= 'A' && simbolo <= 'Z')
+					Estado = q191;
+				break;
+			case q191:
+				if (simbolo == ';')
+					Estado = q192;
+				if (simbolo == ',')
+					Estado = q187;
+				if (simbolo >= 'a' && simbolo <= 'z')
+					Estado = q191;
+				break;
+			case q192:
+				if (simbolo == ' ' || simbolo == '\n')
+					Estado = q131;
+				break;
+
+
+
+
+
+			// case q193:
+			// 	if (simbolo == ' ')
+			// 		Estado = q140;
+			// 	if (simbolo == ';')
+			// 		Estado = q142;
+			// 	break;
+			// case q194:
+			// 	if (simbolo == ' ')
+			// 		Estado = q140;
+			// 	if (simbolo == ';')
+			// 		Estado = q142;
+			// 	break;
+			// case q195:
+			// 	if (simbolo == ' ' || simbolo == '\n')
+			// 		Estado = q131;
+			// 	break;
+			// case q196:
+			// 	if (simbolo == ' ')
+			// 		Estado = q143;
+			// 	if (simbolo == '#')
+			// 		Estado = q144;
+			// 	if (simbolo == '\'')
+			// 		Estado = q146;
+			// 	if (simbolo >= '0' && simbolo >= '9')
+			// 		Estado = q149;
+			// 	break;
+			// case q197:
+			// 	if (simbolo >= 'A' && simbolo <= 'Z')
+			// 		Estado = q145;
+			// 	break;
+			// case q198:
+			// 	if (simbolo >= 'A' && simbolo <= 'Z' || simbolo >= 'a' && simbolo <= 'z' || simbolo >= '0' && simbolo <= '9')
+			// 		Estado = q145;
+			// 	if (simbolo >= ';')
+			// 		Estado = q157;
+			// 	break;
+			// case q199:
+			// 	if (simbolo >= 'A' && simbolo <= 'Z' || simbolo >= 'a' && simbolo <= 'z' || simbolo >= '0' && simbolo <= '9')
+			// 		Estado = q147;
+			// 	break;
+			// case q200:
+			// 	if (simbolo >= 'A' && simbolo <= 'Z' || simbolo >= 'a' && simbolo <= 'z' || simbolo >= '0' && simbolo <= '9')
+			// 		Estado = q147;
+			// 	if (simbolo == '\'')
+			// 		Estado = q148;
+			// 	break;
+			// case q201:
+			// 	if (simbolo == ';')
+			// 		Estado = q157;
+			// 	break;
+			// case q202:
+			// 	if (simbolo >= '0' && simbolo >= '9')
+			// 		Estado = q149;
+			// 	if (simbolo == '.')
+			// 		Estado = q150;
+			// 	if (simbolo == ';')
+			// 		Estado = q157;
+			// 	break;
+			// case q203:
+			// 	if (simbolo >= '0' && simbolo >= '9')
+			// 		Estado = q151;
+			// 	break;
+			// case q204:
+			// 	if (simbolo >= '0' && simbolo >= '9')
+			// 		Estado = q151;
+			// 	if (simbolo == ';')
+			// 		Estado = q157;
+			// 	break;
 			
 		}
 	}
