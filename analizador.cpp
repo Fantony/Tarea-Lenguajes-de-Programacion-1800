@@ -32,7 +32,7 @@ int main(int argc[], char *argv[]){
 	
 	i = numeroLinea = 0;
 	longitud = contenido.size();
-	while (longitud > i and Estado != qe ){
+	while (longitud > i and Estado != qe and Estado != qa ){
 		simbolo = contenido[i];
 		if (simbolo == '\n'){
 			numeroLinea++;
@@ -42,63 +42,99 @@ int main(int argc[], char *argv[]){
 				if (simbolo >= 'A' && simbolo <= 'Z'){
 					Estado = q1;
 				} else {
+					Estado = qe;
 					cout<<"Error en la linea: "<<numeroLinea<<", Sintaxis del programa erronea"<<endl;
 				}
 				break;
 			case q1:
 				if (simbolo >= 'a' && simbolo <= 'z')
 					Estado = q1;
-				if (simbolo == ' ')
+				else if (simbolo == ' ')
 					Estado = q2;
+				else {
+					Estado = qe;
+					cout<<"Error en la linea: "<<numeroLinea<<", Sintaxis del programa erronea"<<endl;
+				}
 				break;
 			case q2:
 				if (simbolo >= 'A' && simbolo <= 'Z'){
 					Estado = q3;
 				} else if (simbolo == ' '){
 					Estado = q2;
+				} else {
+					Estado = qe;
+					cout<<"Error en la linea: "<<numeroLinea<<", Sintaxis del programa erronea"<<endl;
 				}
 				break;
 			case q3:
 				if (simbolo >= 'A' && simbolo <= 'Z' || simbolo >= 'a' && simbolo <= 'z' || simbolo >= '0' && simbolo <= '9')
 					Estado = q3;
-				if (simbolo == ' ')
+				else if (simbolo == ' ')
 					Estado = q4;
-				if (simbolo == '{')
+				else if (simbolo == '{')
 					Estado = q5;
+				else {
+					Estado = qe;
+					cout<<"Error en la linea: "<<numeroLinea<<", Sintaxis del programa erronea"<<endl;
+				}
 				break;
 			case q4:
 				if (simbolo == '{')
 					Estado = q5;
-				if (simbolo == ' ')
+				else if (simbolo == ' ')
 					Estado = q4;
+				else {
+					Estado = qe;
+					cout<<"Error en la linea: "<<numeroLinea<<", Sintaxis del programa erronea"<<endl;
+				}
 				break;
 			case q5:
 				if (simbolo == ' ' || simbolo == '\n')
 					Estado = q6;
+				else {
+					Estado = qe;
+					cout<<"Error en la linea: "<<numeroLinea<<", Sintaxis del programa erronea"<<endl;
+				}
 				break;
 			case q6:
 				if (simbolo == ' ' || simbolo == '\n')
 					Estado = q6;
-				if (simbolo >= 'A' && simbolo <= 'Z')
+				else if (simbolo >= 'A' && simbolo <= 'Z')
 					Estado = q7;
+				else {
+					Estado = qe;
+					cout<<"Error en la linea: "<<numeroLinea<<", Sintaxis del programa erronea"<<endl;
+				}
 				break;
 			case q7:
 				if (simbolo >= 'a' && simbolo <= 'z')
 					Estado = q7;
-				if (simbolo == ' ')
+				else if (simbolo == ' ')
 					Estado = q8;
+				else {
+					Estado = qe;
+					cout<<"Error en la linea: "<<numeroLinea<<", Sintaxis del programa erronea"<<endl;
+				}
 				break;
 			case q8:
 				if (simbolo == ' ')
 					Estado = q8;
-				if (simbolo == '_')
+				else if (simbolo == '_')
 					Estado = q9;
-				if (simbolo == '-')
+				else if (simbolo == '-')
 					Estado = q34;
+				else {
+					Estado = qe;
+					cout<<"Error en la linea: "<<numeroLinea<<", Sintaxis del programa erronea"<<endl;
+				}
 				break;
 			case q9:
 				if (simbolo >= 'A' && simbolo <= 'Z')
 					Estado = q10;
+				else {
+					Estado = qe;
+					cout<<"Error en la linea: "<<numeroLinea<<", Sintaxis del programa erronea"<<endl;
+				}
 				break;
 			case q10:
 				if (simbolo >= 'a' && simbolo <= 'z')
